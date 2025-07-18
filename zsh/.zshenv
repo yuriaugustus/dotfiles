@@ -16,7 +16,6 @@ export ZCACHEDIR="$XDG_CACHE_HOME/zsh"
 export ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
 
 export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
-export GIT_CONFIG="${XDG_CONFIG_HOME}/git/.gitconfig"
 
 export HISTFILE="$ZCACHEDIR/zhistory"     # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history

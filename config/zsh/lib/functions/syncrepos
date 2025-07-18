@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function syncrepos() {
-    local notes='/home/yuri/Documents/ObsidianNotes/'
+    local notes='/home/yuri/workspace/ObsidianNotes/'
     local commit_message="${2:-Sync}"
 
     # Change to the specified directory

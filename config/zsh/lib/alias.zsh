@@ -22,10 +22,11 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 # directories
-alias dotfiles='cd $HOME/Workspace/dotfiles/'
+alias dotfiles='cd $HOME/workspace/dotfiles/'
+alias work='cd $HOME/workspace/'
 alias docs='cd $HOME/Documents/'
 alias down='cd $HOME/Downloads/'
-alias notes='cd $HOME/Documents/ObsidianNotes'
+alias notes='cd $HOME/workspace/ObsidianNotes'
 
 if [ $(command -v bat) ]; then alias cat='bat -P'; fi
 
