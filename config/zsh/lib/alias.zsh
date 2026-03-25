@@ -1,16 +1,31 @@
 alias sudo='sudo '
 
-# color all the stuff
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias xzegrep='xzegrep --color=auto'
-alias xzfgrep='xzfgrep --color=auto'
-alias xzgrep='xzgrep --color=auto'
-alias zegrep='zegrep --color=auto'
-alias zfgrep='zfgrep --color=auto'
-alias zgrep='zgrep --color=auto'
 alias ls='ls --color=auto'
+
+# grep to ripgrep
+if (( $+commands[rg] )); then
+    alias grep="rg"
+    alias -g ':G'="| rg"
+elif (( $+commands[ripgrep] )); then
+    alias grep="ripgrep"
+    alias -g ':G'="| ripgrep"
+else
+    alias -g ':G'="| grep"
+fi
+
+# clipboard terminal
+if [[ "$detected_os" == "Darwin" ]]; then
+    alias copy='pbcopy'
+    alias paste='pbpaste'
+else
+    if (( $+commands[xsel] )); then
+        alias copy='xsel --clipboard --input'
+        alias paste='xsel --clipboard --output'
+    elif (( $+commands[xclip] )); then
+        alias copy='xclip -selection clipboard'
+        alias paste='xclip -selection clipboard -o'
+    fi
+fi
 
 # colors in less (default PAGER in Arch)
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -23,14 +38,12 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # directories
 alias dotfiles='cd $HOME/workspace/dotfiles/'
-alias work='cd $HOME/workspace/'
+alias work='cd $HOME/work'
 alias docs='cd $HOME/Documents/'
 alias down='cd $HOME/Downloads/'
 alias notes='cd $HOME/workspace/ObsidianNotes'
 
 if [ $(command -v bat) ]; then alias cat='bat -P'; fi
-
-alias blackbox="flatpak run com.raggesilver.BlackBox"
 
 # fedora package manager
 alias updatefedora='sudo dnf update && flatpak update'
@@ -135,7 +148,7 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio "
 
 alias update-grub='sudo grub2-mkconfig -o /boot/grub/grub.cfg' # update grub
 
-alias myxip='curl icanhazip.com' # get external IP
+alias myxip='curl ifconfig.me' # get external IP
 alias myip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Show laptop's IP addresses
 
 #alias restartsound='systemctl --user restart pipewire pipewire-pulse && systemctl --user daemon-reload'

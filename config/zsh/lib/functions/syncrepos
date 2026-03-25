@@ -63,4 +63,4 @@ function syncrepos() {
 }
 
 # Execute the function with the desired parameters
-syncrepos
+syncrepos && cd -

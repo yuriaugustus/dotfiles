@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+extip() {
+    local ipv4=$(curl -s -4 ifconfig.me)
+    local ipv6=$(curl -s -6 ifconfig.me)
+
+    if [ "$ipv4" = "$ipv6" ]; then
+        echo "IPv4: $ipv4"
+    else
+        echo "IPv6: $ipv6"
+        echo "IPv4: $ipv4"
+    fi
+}
+
+extip
