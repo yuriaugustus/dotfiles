@@ -1,164 +1,28 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
-format = """
-[](color_yellow)\
-$os\
-$username\
-[](bg:color_orange fg:color_yellow)\
-$directory\
-[](fg:color_orange bg:color_red)\
-$git_branch\
-$git_status\
-[](fg:color_red bg:color_darkred)\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-[](fg:color_darkred bg:color_bg2)\
-$docker_context\
-$conda\
-[](fg:color_bg2 bg:color_bg1)\
-$time\
-[ ](fg:color_bg1)\
-$line_break$character"""
-
-palette = "onedark"
-
-[palettes.onedark]
-color_fg0 = '#abb2bf'
-color_bg1 = '#31353f'
-color_bg2 = '#393f4a'
-color_blue = '#61afef'
-color_aqua = '#56b6c2'
-color_green = '#98c379'
-color_orange = '#d19a66'
-color_purple = '#c678dd'
-color_red = '#e06c75'
-color_darkred = '#8b3434'
-color_yellow = '#e5c07b'
-
-[os]
-disabled = false
-style = "bg:color_yellow fg:color_bg1"
-
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-
-[username]
-show_always = true
-style_user = "bg:color_yellow fg:color_bg1"
-style_root = "bg:color_yellow fg:color_bg1"
-format = '[ $user ]($style)'
-
-[directory]
-style = "fg:color_bg1 bg:color_orange"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
-
-[git_branch]
-symbol = ""
-style = "bg:color_red"
-format = '[[ $symbol $branch ](fg:color_bg1 bg:color_red)]($style)'
-
-[git_status]
-style = "bg:color_red"
-format = '[[($all_status$ahead_behind )](fg:color_bg1 bg:color_red)]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[c]
-symbol = " "
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[php]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[java]
-symbol = " "
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[python]
-symbol = ""
-style = "bg:color_darkred"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_darkred)]($style)'
-
-[docker_context]
-symbol = ""
-style = "bg:color_bg2"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg2)]($style)'
-
-[time]
-disabled = false
-time_format = "%R"
-style = "bg:color_bg1"
-format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
-
-[line_break]
-disabled = false
+# https://github.com/starship/starship/discussions/1908
 
 [character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[❮](bold green)"
+
+[status]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[shell]
+bash_indicator = "$"
+zsh_indicator = "%"
+xonsh_indicator = "🐚"
+fish_indicator = "🐟"
+powershell_indicator = "❯_"
+format = "$indicator(bold green) "
+disabled = false
+
+[custom.zsh]
+symbol = "%"
+when = '[ "$STARSHIP_SHELL" == "zsh" ]'
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.xonsh]
+symbol = '\(🐍 xsh\)'
+when = '[ "$STARSHIP_SHELL" == "xonsh" ]'
+shell = ["bash", "--noprofile", "--norc"]
