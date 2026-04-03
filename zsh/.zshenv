@@ -65,4 +65,4 @@ export BROWSER="firefox"
 export PAGER="less"
 export TERM="xterm-256color"
 
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/catppuccinpowerline.toml"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/end4.toml"

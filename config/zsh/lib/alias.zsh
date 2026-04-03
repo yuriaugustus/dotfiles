@@ -38,7 +38,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # directories
 alias dotfiles='cd $HOME/workspace/dotfiles/'
-alias work='cd $HOME/work'
+alias work='cd $HOME/workspace/'
 alias docs='cd $HOME/Documents/'
 alias down='cd $HOME/Downloads/'
 alias notes='cd $HOME/workspace/ObsidianNotes'
