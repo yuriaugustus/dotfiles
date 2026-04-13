@@ -1,5 +1,5 @@
 globalias() {
-   if [[ $LBUFFER =~ ' [A-Z0-9]+$' ]]; then
+   if [[ $LBUFFER =~ ' [A-Za-z0-9]+$' ]]; then
      zle _expand_alias
      zle expand-word
    fi

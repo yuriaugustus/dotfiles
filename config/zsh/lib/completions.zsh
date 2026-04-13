@@ -1,18 +1,3 @@
-# Options related with completions
-# setopt GLOB_COMPLETE      # Show autocompletion menu with globs
-setopt EXTENDED_GLOB         # Enabled extended globbing / needed for file modification glob modifiers with compinit
-setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
-unsetopt FLOW_CONTROL     # disable start/stop characters in shell editor
-unsetopt CASE_GLOB        # makes globbing (filename generation) case-sensitive
-setopt AUTO_MENU            # show completion menu on a successive tab press
-setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
-setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
-setopt ALWAYS_TO_END        # move cursor to the end of a completed word
-setopt AUTO_PARAM_SLASH     # if completed parameter is a directory, add a trailing slash
-setopt PATH_DIRS            # perform path search even on command names with slashes
-setopt GLOBDOTS             # files beginning with a . be matched without explicitly specifying the dot
-
-
 # Zstyle pattern
 # :completion:<function>:<completer>:<command>:<argument>:<tag>
 
@@ -97,7 +82,6 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*' verbose yes
 
 # fuzzy match mistyped completions
-zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 

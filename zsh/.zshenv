@@ -20,7 +20,6 @@ export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 export HISTFILE="$ZCACHEDIR/zhistory"     # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
-export HISTORY_IGNORE="(ls|cd|pwd|zsh|exit|cd ..)"
 
 export DOTFILES="$HOME/Workspace/dotfiles"
 
@@ -63,6 +62,5 @@ export BAT_THEME="OneDark"
 export TERMINAL="pytxis"
 export BROWSER="firefox"
 export PAGER="less"
-export TERM="xterm-256color"
 
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/end4.toml"

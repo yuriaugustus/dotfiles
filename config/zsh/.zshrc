@@ -3,13 +3,14 @@ source $ZDOTDIR/lib/keybinds.zsh
 source $ZDOTDIR/lib/expansions.zsh
 source $ZDOTDIR/lib/cursor.zsh
 source $ZDOTDIR/lib/completions.zsh
-source $ZDOTDIR/lib/history.zsh
+source $ZDOTDIR/lib/options.zsh
 
 # plugins
 # get zsh_unplugged
-if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]
-  then git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
+if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
+  git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
 fi
+
 source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 
 # plugins list, loaded in order of listing
@@ -49,26 +50,18 @@ palette2() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
-# navigation options
-setopt AUTO_PUSHD           # Push the current directory visited on the stack.
-setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
-setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
-setopt CORRECT              # Spelling correction
-setopt CDABLE_VARS          # Change directory to a path stored in a variable.
-setopt EXTENDED_GLOB        # Use extended globbing syntax.
-setopt COMPLETEALIASES
-#setopt auto_cd              # Auto changes to a directory without typing cd.
-setopt PUSHD_TO_HOME        # Push to home directory when no argument is given.
-setopt AUTO_NAME_DIRS       # Auto add variable-stored paths to ~ list.
-setopt MULTIOS              # Write to multiple descriptors.
-setopt CLOBBER              # turn off warning "file exists" with > and >>
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
+if command -v dircolors > /dev/null 2>&1; then
+  eval "$(dircolors "$XDG_CONFIG_HOME/dircolors/dir_colors")"
+fi
 
-eval $(dircolors "$XDG_CONFIG_HOME"/dircolors/dir_colors)
-eval $(thefuck --alias fuck)
-eval "$(starship init zsh)"
-#fastfetch
+if command -v thefuck >/dev/null 2>&1; then
+  eval "$(thefuck --alias fuck)"
+fi
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -43,7 +43,7 @@ alias docs='cd $HOME/Documents/'
 alias down='cd $HOME/Downloads/'
 alias notes='cd $HOME/workspace/ObsidianNotes'
 
-if [ $(command -v bat) ]; then alias cat='bat -P'; fi
+if [ $(command -v bat) ]; then alias cat='bat -p'; fi
 
 # fedora package manager
 alias updatefedora='sudo dnf update && flatpak update'
@@ -84,13 +84,11 @@ for index ({1..9}) alias "$index"="cd +${index} > /dev/null"; unset index
 alias c='clear'
 
 # config to don't fuck up all
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -iv'
+alias cpi='cp -iv'
+alias mvi='mv -iv'
+alias rmi='rm -iv'
 
-alias mkdir='mkdir -pv'
-
-alias ping='ping -c 5'
+alias ping5='ping -c 5'
 
 # get top process eating memory
 alias psmem='ps -e -orss=,args= | sort -b -k1 -nr'
@@ -118,33 +116,10 @@ alias top10dirs="find . -type d -print0 | xargs -0 du | sort -n | tail -10 | cut
 # find files in current directory
 alias ff="find . -maxdepth 1 -type f"
 
-alias duu='du -sh' # list directory size in current dir
-
 # tmux
 alias tmuxk='tmux kill-session -t'
 alias tmuxa='tmux attach -t'
 alias tmuxl='tmux list-sessions'
-
-# generate password
-alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
-
-#Grab audio only from YouTube
-#    Usage: yta-mp3 https://youtube.com/watch?v=???????????
-#
-# You could also replace youtube-dl with 'yt-dlp' as they both more or
-# less use the same arguments.
-
-alias yta-aac="yt-dlp --extract-audio --audio-format aac "
-alias yta-best="yt-dlp --extract-audio --audio-format best "
-alias yta-flac="yt-dlp --extract-audio --audio-format flac "
-alias yta-m4a="yt-dlp --extract-audio --audio-format m4a "
-alias yta-mp3="yt-dlp --extract-audio --audio-format mp3 "
-alias yta-opus="yt-dlp --extract-audio --audio-format opus "
-alias yta-vorbis="yt-dlp --extract-audio --audio-format vorbis "
-alias yta-wav="yt-dlp --extract-audio --audio-format wav "
-
-#Grab the highest quality of video+audio from YouTube
-alias ytv-best="yt-dlp -f bestvideo+bestaudio "
 
 alias update-grub='sudo grub2-mkconfig -o /boot/grub/grub.cfg' # update grub
 
