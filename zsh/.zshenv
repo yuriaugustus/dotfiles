@@ -35,32 +35,36 @@ fi
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-FZF_COLORS="bg+:#31353f,\
-bg:#282c34,\
-fg:#abb2bf,\
-fg+:#abb2bf,\
-border:#7e3992,\
-spinner:#e5c07b,\
-hl:#e55561,\
-header:#e86671,\
-info:#d19a66,\
-pointer:#e5c07b,\
-marker:#e5c07b,\
-prompt:#d19a66,\
-hl+:#e86671"
-
-export FZF_DEFAULT_OPTS=" \
---height 50% \
---margin 4% \
---border rounded \
---color '$FZF_COLORS'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
 
-export BAT_THEME="OneDark"
+export BAT_THEME="tokyonight_night"
 export TERMINAL="pytxis"
 export BROWSER="firefox"
 export PAGER="less"
 
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/end4.toml"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/snes.toml"

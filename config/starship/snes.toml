@@ -1,0 +1,62 @@
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$golang\
+$character"""
+
+# Speed settings
+command_timeout = 1000
+
+# --- THE MODULES ---
+
+[username]
+show_always = true
+style_user = "bg:#7aa2f7 fg:#414868"
+style_root = "bg:#f7768e fg:#414868"
+format = '[](fg:#7aa2f7)[ $user ]($style)[](fg:#7aa2f7 bg:#24283b)'
+
+[directory]
+style = "bg:#24283b fg:#cfc9c2"
+format = "[ $path ]($style)[](fg:#24283b) "
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#24283b fg:#7aa2f7"
+format = '[](fg:#24283b)[$symbol $branch ]($style)[](fg:#24283b) '
+
+[git_status]
+style = "bg:#24283b fg:#f7768e"
+format = '[](fg:#24283b)[$all_status$ahead_behind ]($style)[](fg:#24283b) '
+
+[python]
+symbol = " "
+style = "bg:#e0af68 fg:#2ac3de"
+format = '[](fg:#e0af68)[$symbol$version]($style)[](fg:#e0af68)'
+detect_extensions = []
+detect_files = []
+
+[nodejs]
+symbol = ""
+style = "bg:#24283b fg:#cfc9c2"
+format = '[$symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#24283b fg:#cfc9c2"
+format = '[$symbol ($version) ]($style)'
+
+[golang]
+symbol = "ﳑ"
+style = "bg:#24283b fg:#cfc9c2"
+format = '[$symbol ($version) ]($style)'
+
+[character]
+success_symbol = "[❯](bold #7aa2f7)" 
+error_symbol = "[❯](bold #f7768e)"
